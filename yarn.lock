@@ -440,6 +440,13 @@ aurelia-hot-module-reload@^0.1.0:
     aurelia-pal "^1.0.0"
     aurelia-templating "^1.1.2"
 
+aurelia-http-client@^1.1.1:
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/aurelia-http-client/-/aurelia-http-client-1.1.1.tgz#9eaa96485c1e2ac2d9584f427ee5efd94f962867"
+  dependencies:
+    aurelia-pal "^1.0.0"
+    aurelia-path "^1.0.0"
+
 aurelia-loader-default@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/aurelia-loader-default/-/aurelia-loader-default-1.0.2.tgz#0bacb0a0e06ea4a8f21d356e236e0c90b2634615"

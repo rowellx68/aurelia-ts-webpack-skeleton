@@ -74,6 +74,7 @@
     "aurelia-event-aggregator": "^1.0.1",
     "aurelia-framework": "^1.1.2",
     "aurelia-history-browser": "^1.0.0",
+    "aurelia-http-client": "^1.1.1",
     "aurelia-logging-console": "^1.0.0",
     "aurelia-pal-browser": "^1.2.1",
     "aurelia-polyfills": "^1.2.1",

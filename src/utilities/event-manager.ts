@@ -6,10 +6,20 @@ export class EventManager {
   constructor(private aggregator: EventAggregator) {
   }
 
+  /**
+   * Publish an event with an optional data to pass.
+   * @param {string} event 
+   * @param {any=} data 
+   */
   public publish(event: string, data?: any) {
     this.aggregator.publish(event, data);
   }
 
+  /**
+   * Subscribe to an event with a callback that could recieve data.
+   * @param {string} event 
+   * @param {Function} callback 
+   */
   public subscribe(event: string, callback: Function) {
     const sub = this.aggregator.subscribe(event, callback);
     return new AuSubscription(sub);
