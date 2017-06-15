@@ -1,17 +1,24 @@
 <template>
-    <nav class="navbar navbar-default navbar-main">
+    <nav class="navbar navbar-default navbar-main navbar-fixed-top">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="#" class="navbar-brand" tooltip title="Tooltip example"><i class="fa fa-fw fa-paper-plane"></i></a>
+                <button class="navbar-toggle collapsed" click.trigger="toggle()" if.bind="authenticated">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
             </div>
-            <ul if.bind="authenticated" class="nav navbar-nav navbar-right">
-                <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
-                    <a href.bind="row.href">${row.title}</a>
-                </li>
-                <li>
-                    <a href="#" click.delegate="logout()">Logout</a>
-                </li>
-            </ul>
+            <div class="collapse navbar-collapse" show.bind="authenticated">
+              <ul class="nav navbar-nav navbar-right">
+                  <li repeat.for="row of router.navigation" class="${row.isActive ? 'active' : ''}">
+                      <a href.bind="row.href">${row.title}</a>
+                  </li>
+                  <li>
+                      <a href="#" click.delegate="logout()">Logout</a>
+                  </li>
+              </ul>
+            </div>
         </div>
     </nav>
 </template>
