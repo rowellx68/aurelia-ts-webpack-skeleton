@@ -1,7 +1,7 @@
-declare function Tippy(element: Element | HTMLElement, options?: tippy.TippyOptions): tippy.TippyInstance;
+declare function Tippy(element: Element | HTMLElement, options?: Tippy.Options): Tippy.Instance;
 
-declare namespace tippy {
-  interface TippyOptions {
+declare namespace Tippy {
+  interface Options {
     position?: string;
     trigger?: string;
     interactive?: boolean;
@@ -37,7 +37,7 @@ declare namespace tippy {
     wait?: (show: Function, event: Event) => void;
   }
 
-  interface TippyInstance extends Object {
+  interface Instance extends Object {
     show(popper: Element | HTMLElement);
     hide(popper: Element | HTMLElement);
     update(popper: Element | HTMLElement);
@@ -45,17 +45,17 @@ declare namespace tippy {
 
     getPopperElement(refElement: Element | HTMLElement): Element | HTMLElement;
     getTooltippedElement(popperElement: Element | HTMLElement): Element | HTMLElement;
-    getReference(element: Element | HTMLElement): tippy.TippyReference;
+    getReference(element: Element | HTMLElement): Tippy.Reference;
   }
 
-  interface TippyReference extends Object {
+  interface Reference extends Object {
     el: Element | HTMLElement;
     id: number;
     listeners: EventListener[];
     onShownFired: boolean;
     popper: Element | HTMLElement;
-    settings: tippy.TippyOptions;
-    tippyInstance: tippy.TippyInstance;
+    settings: Tippy.Options;
+    tippyInstance: Tippy.Instance;
     transitionedTimeout: number;
   }
 }
