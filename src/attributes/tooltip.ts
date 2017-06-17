@@ -27,7 +27,6 @@ export class TooltipCustomAttribute {
   optionsChanged() {
     this.destroyTippyInstance();
 
-    this.element.setAttribute("title", this.element.getAttribute("data-original-title"));
     this.tip = Tippy(this.element, this.options);
   }
 
