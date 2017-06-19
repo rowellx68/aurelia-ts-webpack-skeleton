@@ -5,9 +5,9 @@ import { Router } from "aurelia-router";
 import { ConfirmationModal } from "../../modals/confirmation/confirmation";
 import { AppRouter } from "../../routers/app-router";
 
-@inject(AppRouter, DialogService)
+@inject(Element, AppRouter, DialogService)
 export class MainNavCustomElement {
-  constructor(private appRouter: AppRouter, private dialogService: DialogService) {
+  constructor(private element: Element, private appRouter: AppRouter, private dialogService: DialogService) {
   }
 
   @bindable router: Router;
@@ -23,6 +23,24 @@ export class MainNavCustomElement {
     return current.fragment !== "/login";
   }
 
+  attached() {
+    const links: HTMLElement[] = [].slice.call(this.element.querySelectorAll("a"));
+    const navCollapse = this.element.querySelector(".collapse.navbar-collapse");
+    
+    links.forEach(e => {
+      e.addEventListener("click", () => navCollapse.classList.remove("in"));
+    });
+  }
+
+  detached() {
+    const links: HTMLElement[] = [].slice.call(this.element.querySelectorAll("a"));
+    const navCollapse = this.element.querySelector(".collapse.navbar-collapse");
+    
+    links.forEach(e => {
+      e.removeEventListener("click", () => navCollapse.classList.remove("in"));
+    });
+  }
+
   public async logout() {
     const result = await this.dialogService.open({
       viewModel: ConfirmationModal,
@@ -35,5 +53,13 @@ export class MainNavCustomElement {
     if (!result.wasCancelled) {
       this.appRouter.navigateToLogin();
     }
+  }
+
+  toggle() {
+    const navCollapse = this.element.querySelector(".collapse.navbar-collapse");
+
+    navCollapse.classList.contains("in")
+      ? navCollapse.classList.remove("in")
+      : navCollapse.classList.add("in");
   }
 }

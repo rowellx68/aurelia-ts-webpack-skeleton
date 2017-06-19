@@ -41,6 +41,7 @@ npm run build # or yarn build
 3. [Component naming & organisation](docs/component-naming-organisation.md)
     - [Component communication](docs/component-communication.md)
 4. [Routing](docs/routing.md)
+5. [Http Requests](docs/http-requests.md)
 5. Authentication
 6. [Templates](docs/templates.md)
 7. [Bundling](docs/bundling-configuration.md)

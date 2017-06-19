@@ -5,12 +5,12 @@ export class TooltipCustomAttribute {
   constructor(private element: Element) {
   }
 
-  @bindable options: tippy.TippyOptions;
+  @bindable options: Tippy.Options;
   
-  private tip: tippy.TippyInstance;
+  private tip: Tippy.Instance;
 
   bind() {
-    let options: tippy.TippyOptions = { arrow: true, size: "big" };
+    let options: Tippy.Options = { arrow: true, size: "big" };
 
     if (this.options) {
       options = this.options;
@@ -27,7 +27,6 @@ export class TooltipCustomAttribute {
   optionsChanged() {
     this.destroyTippyInstance();
 
-    this.element.setAttribute("title", this.element.getAttribute("data-original-title"));
     this.tip = Tippy(this.element, this.options);
   }
 
