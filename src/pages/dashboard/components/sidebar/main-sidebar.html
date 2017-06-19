@@ -3,7 +3,7 @@
     <div class="list-group-item text-center">
       <i class="fa fa-fw fa-user-circle-o fa-3x text-muted"></i>
     </div>
-    <a href.bind="row.href" repeat.for="row of router.navigation" class="list-group-item ${row.isActive ? 'active' : ''}">
+    <a href.bind="row.href" repeat.for="row of navigation" class="list-group-item ${row.isActive ? 'active' : ''}">
       <div class="fa fa-fw ${row.settings.icon}"></div>
       ${row.title}
     </a>

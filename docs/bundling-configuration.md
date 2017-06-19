@@ -40,6 +40,18 @@ plugins: [
 ```
  This is how you will need to expose jQuery, if needed.
 
+ ### WARNING
+
+ It is important not to add any Aurelia specific modules in the entry points settings. Some Aurelia modules require another module to be initialised and would cause issues if they are added on the `app` or `vendor` entrypoints. They will however be bundled into the `app` bundle as they will be imported inside the source files.
+
+ A good example of this is `aurelia-dialog`.
+
+ ```javascript
+entry: {
+  app: ["aurelia-bootstrapper"],
+  vendor: ["bluebird", "tippy.js"]
+}
+ ```
 
 # Configuration
 
